@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="half_margin">8dp</dimen>
+    <dimen name="margin_small">16dp</dimen>
+    <dimen name="margin_medium">24dp</dimen>
+    <dimen name="margin_large">36dp</dimen>
+    <dimen name="margin_xlarge">48dp</dimen>
+    <dimen name="ts_smaller">14sp</dimen>
+    <dimen name="ts_small">15sp</dimen>
+    <dimen name="ts_normal">18sp</dimen>
+    <dimen name="ts_medium">20sp</dimen>
+    <dimen name="ts_large">24sp</dimen>
+    <dimen name="ts_xlarge">30sp</dimen>
+</resources>

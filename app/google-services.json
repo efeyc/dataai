@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1093156553206",
+    "project_id": "dataai-80980",
+    "storage_bucket": "dataai-80980.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093156553206:android:93146e742a720086b0c7d7",
+        "android_client_info": {
+          "package_name": "com.eck.dataai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093156553206-9og17da8ppu3tbam9d561asq5vdrkec3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2im4XNfgGemJdHFoCidst8da7jku9CPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1093156553206-9og17da8ppu3tbam9d561asq5vdrkec3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

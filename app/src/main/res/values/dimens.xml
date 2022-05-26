@@ -1,0 +1,14 @@
+<resources>
+    <dimen name="half_margin">5dp</dimen>
+    <dimen name="margin_small">10dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_xlarge">36dp</dimen>
+    <dimen name="ts_smaller">12sp</dimen>
+    <dimen name="ts_small">13sp</dimen>
+    <dimen name="ts_normal">14sp</dimen>
+    <dimen name="ts_medium">15sp</dimen>
+    <dimen name="ts_medium_large">16sp</dimen>
+    <dimen name="ts_large">18sp</dimen>
+    <dimen name="ts_xlarge">23sp</dimen>
+</resources>
