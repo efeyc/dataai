@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.eck.dataai.BR
+import com.eck.dataai.ui.MainViewModel
 
 class BindableRecyclerViewAdapter : RecyclerView.Adapter<BindableViewHolder>() {
 
@@ -42,6 +43,10 @@ class BindableRecyclerViewAdapter : RecyclerView.Adapter<BindableViewHolder>() {
 class BindableViewHolder(private val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(itemViewModel: ItemViewModel) {
-        binding.setVariable(BR.uiProduct, itemViewModel)
+        if (itemViewModel.viewType == MainViewModel.PRODUCT_ITEM) {
+            binding.setVariable(BR.uiProduct, itemViewModel)
+        } else if (itemViewModel.viewType == MainViewModel.SALES_ITEM) {
+            binding.setVariable(BR.uiSales, itemViewModel)
+        }
     }
 }

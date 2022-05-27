@@ -33,6 +33,7 @@ class MainFragment : Fragment() {
                 }
             }
         }
+        viewModel.loadData()
 
         return binding.root
     }

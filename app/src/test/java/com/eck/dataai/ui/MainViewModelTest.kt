@@ -1,6 +1,5 @@
 package com.eck.dataai.ui
 
-import com.eck.dataai.data.AnalyticsKeys
 import com.eck.dataai.helper.InstantExecutorExtension
 import com.eck.dataai.helper.TestConstants.product
 import com.eck.dataai.helper.TestConstants.uiProduct
@@ -50,6 +49,8 @@ class MainViewModelTest {
     fun setup() {
         MockitoAnnotations.openMocks(this)
         Dispatchers.setMain(dispatcher)
+        mainViewModel = MainViewModel(dataManager, logManager, productMapper, analyticsManager)
+
     }
 
     @AfterEach
@@ -61,7 +62,7 @@ class MainViewModelTest {
     fun loadData(): Unit = runTest {
         `when`(dataManager.getUserProducts()).thenReturn(listOf(product))
         `when`(productMapper.map(product)).thenReturn(uiProduct)
-        mainViewModel = MainViewModel(dataManager, logManager, productMapper, analyticsManager)
+        mainViewModel.loadData()
 
         verify(dataManager).getUserProducts()
         verify(productMapper).map(product)

@@ -1,2 +1,10 @@
 <resources>
+    <string name="country">Land:</string>
+    <string name="units">Eenheden:</string>
+    <string name="sales">Verkoop:</string>
+    <string name="units_description_downloads">%d downloads</string>
+    <string name="units_description_updates">%d updates</string>
+    <string name="units_description_sales">%d restituties</string>
+    <string name="revenue_description_sales">%s van verkoop</string>
+    <string name="revenue_description_refunds">%s van restituties</string>
 </resources>

@@ -1,3 +1,7 @@
 package com.eck.dataai.models.api
 
-data class ResponseProductSales(val product: Product)
+import com.google.gson.annotations.SerializedName
+
+data class ResponseProductSales(
+    @SerializedName("sales_list") val salesList: List<SalesData>,
+)

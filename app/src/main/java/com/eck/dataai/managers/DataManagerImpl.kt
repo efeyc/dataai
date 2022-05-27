@@ -1,6 +1,7 @@
 package com.eck.dataai.managers
 
 import com.eck.dataai.models.api.Product
+import com.eck.dataai.models.api.SalesData
 import com.eck.dataai.network.Api
 
 class DataManagerImpl(private val api: Api) : DataManager {
@@ -18,5 +19,10 @@ class DataManagerImpl(private val api: Api) : DataManager {
             products.add(product)
         }
         return products
+    }
+
+    override suspend fun getProductSales(accountId: Int, productId: Int): List<SalesData> {
+        val result = api.getProductSales(accountId, productId)
+        return result.salesList.sortedByDescending { it.units.product.downloads }
     }
 }

@@ -19,15 +19,21 @@ class DetailFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
+
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+        binding.recyclerView.addItemDecoration(MainDecoration())
+        binding.loading = true
+        viewModel.productSales.observe(viewLifecycleOwner) {
+            binding.loading = false
+        }
+        viewModel.loadProductSales(args.accountId, args.productId)
+
         return binding.root
     }
 
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
     }
 }
