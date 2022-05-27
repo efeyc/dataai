@@ -18,6 +18,7 @@ fun View.bindVisibility(visible: Boolean) {
 @BindingAdapter("status")
 fun setStatus(viewGroup: ViewGroup, status: Boolean) {
     val resId = if (status) R.drawable.bg_blue_light_rounded_10dp else R.drawable.bg_gray_rounded_10dp
+    viewGroup.isClickable = status
     viewGroup.setBackgroundResource(resId)
 }
 

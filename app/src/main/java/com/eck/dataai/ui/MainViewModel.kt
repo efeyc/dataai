@@ -10,9 +10,11 @@ import com.eck.dataai.mapper.Mapper
 import com.eck.dataai.mapper.ProductMapper
 import com.eck.dataai.models.api.Product
 import com.eck.dataai.models.ui.UIProduct
+import com.eck.dataai.testutils.OpenForTesting
 import com.eck.dataai.ui.common.ItemViewModel
 import kotlinx.coroutines.launch
 
+@OpenForTesting
 open class MainViewModel(
     private val dataManager: DataManager,
     private val logManager: LogManager,

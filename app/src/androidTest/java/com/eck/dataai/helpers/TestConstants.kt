@@ -1,4 +1,4 @@
-package com.eck.dataai.helper
+package com.eck.dataai.helpers
 
 import com.eck.dataai.mapper.ProductMapper
 import com.eck.dataai.models.api.Product

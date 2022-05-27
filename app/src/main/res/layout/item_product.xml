@@ -11,11 +11,12 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:status="@{uiProduct.status}"
         android:paddingHorizontal="@dimen/margin_medium"
-        android:paddingVertical="@dimen/margin_small">
+        android:paddingVertical="@dimen/margin_small"
+        app:status="@{uiProduct.status}">
 
         <ImageView
             android:id="@+id/icon"

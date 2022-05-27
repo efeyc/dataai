@@ -3,7 +3,10 @@ package com.eck.dataai.di
 import com.eck.dataai.BuildConfig
 import com.eck.dataai.data.Constants
 import com.eck.dataai.managers.*
+import com.eck.dataai.mapper.Mapper
 import com.eck.dataai.mapper.ProductMapper
+import com.eck.dataai.models.api.Product
+import com.eck.dataai.models.ui.UIProduct
 import com.eck.dataai.network.Api
 import com.eck.dataai.network.ApiInterceptor
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -33,7 +36,7 @@ fun appModule() = module {
         DataManagerImpl(get())
     }
 
-    single {
+    single<Mapper<Product, UIProduct>> {
         ProductMapper()
     }
 
