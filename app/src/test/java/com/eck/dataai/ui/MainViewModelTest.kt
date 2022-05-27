@@ -1,8 +1,10 @@
 package com.eck.dataai.ui
 
+import com.eck.dataai.data.AnalyticsKeys
 import com.eck.dataai.helper.InstantExecutorExtension
 import com.eck.dataai.helper.TestConstants.product
 import com.eck.dataai.helper.TestConstants.uiProduct
+import com.eck.dataai.managers.AnalyticsManager
 import com.eck.dataai.managers.DataManager
 import com.eck.dataai.managers.LogManager
 import com.eck.dataai.mapper.Mapper
@@ -34,6 +36,9 @@ class MainViewModelTest {
     lateinit var logManager: LogManager
 
     @Mock
+    lateinit var analyticsManager: AnalyticsManager
+
+    @Mock
     lateinit var productMapper: Mapper<Product, UIProduct>
 
     private val dispatcher = UnconfinedTestDispatcher()
@@ -56,7 +61,7 @@ class MainViewModelTest {
     fun loadData(): Unit = runTest {
         `when`(dataManager.getUserProducts()).thenReturn(listOf(product))
         `when`(productMapper.map(product)).thenReturn(uiProduct)
-        mainViewModel = MainViewModel(dataManager, logManager, productMapper)
+        mainViewModel = MainViewModel(dataManager, logManager, productMapper, analyticsManager)
 
         verify(dataManager).getUserProducts()
         verify(productMapper).map(product)

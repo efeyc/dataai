@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.eck.dataai.databinding.FragmentMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -23,6 +24,14 @@ class MainFragment : Fragment() {
         binding.loading = true
         viewModel.data.observe(viewLifecycleOwner) {
             binding.loading = false
+        }
+        viewModel.events.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { productEvent ->
+                if (productEvent is ProductListEvent.ShowSelectedProduct) {
+                    val action = MainFragmentDirections.openDetail(productEvent.accountId, productEvent.productId)
+                    findNavController().navigate(action)
+                }
+            }
         }
 
         return binding.root

@@ -5,6 +5,7 @@ import com.eck.dataai.ui.MainViewModel
 import com.eck.dataai.ui.common.ItemViewModel
 
 class UIProduct(
+    val productId: Int,
     val productName: String,
     val publisherName: String,
     val mainCategory: String,
@@ -15,4 +16,9 @@ class UIProduct(
 ) : ItemViewModel {
     override val layoutId: Int = R.layout.item_product
     override val viewType: Int = MainViewModel.PRODUCT_ITEM
+
+    var onItemClick: ((Int?, Int) -> Unit)? = null
+    fun onClick() {
+        onItemClick?.invoke(accountId, productId)
+    }
 }

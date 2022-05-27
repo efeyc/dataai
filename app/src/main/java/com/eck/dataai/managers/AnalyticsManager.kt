@@ -6,4 +6,5 @@ interface AnalyticsManager {
 
     fun log(key: String, bundle: Bundle? = null)
 
+    fun logProductEvent(key: String, productId: Int)
 }

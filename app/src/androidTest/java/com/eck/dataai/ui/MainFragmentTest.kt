@@ -12,6 +12,7 @@ import com.eck.dataai.R
 import com.eck.dataai.di.appModule
 import com.eck.dataai.helpers.DataBindingIdlingResource
 import com.eck.dataai.helpers.TestConstants
+import com.eck.dataai.ui.common.Event
 import com.eck.dataai.ui.common.ItemViewModel
 import org.junit.After
 import org.junit.Before
@@ -31,10 +32,12 @@ class MainFragmentTest {
     private val dataBindingIdlingResource = DataBindingIdlingResource()
     private val mockViewModel: MainViewModel = mock(MainViewModel::class.java)
     private val mockItemViewModel = MutableLiveData<List<ItemViewModel>>()
+    private val mockProductListEvent = MutableLiveData<Event<ProductListEvent>>()
 
     @Before
     fun setUp() {
         `when`(mockViewModel.data).thenReturn(mockItemViewModel)
+        `when`(mockViewModel.events).thenReturn(mockProductListEvent)
 
         loadKoinModules(module {
             appModule()

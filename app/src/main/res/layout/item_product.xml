@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/margin_medium"
         android:paddingVertical="@dimen/margin_small"
+        android:onClick="@{() -> uiProduct.onClick()}"
         app:status="@{uiProduct.status}">
 
         <ImageView
