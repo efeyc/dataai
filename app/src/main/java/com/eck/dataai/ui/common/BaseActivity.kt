@@ -1,4 +1,4 @@
-package com.eck.dataai.base
+package com.eck.dataai.ui.common
 
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity

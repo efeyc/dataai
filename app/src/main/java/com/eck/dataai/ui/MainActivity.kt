@@ -5,7 +5,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.eck.dataai.R
-import com.eck.dataai.base.BaseActivity
+import com.eck.dataai.ui.common.BaseActivity
 import com.eck.dataai.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity() {
