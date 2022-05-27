@@ -3,6 +3,7 @@ package com.eck.dataai.di
 import com.eck.dataai.BuildConfig
 import com.eck.dataai.data.Constants
 import com.eck.dataai.managers.*
+import com.eck.dataai.mapper.ProductMapper
 import com.eck.dataai.network.Api
 import com.eck.dataai.network.ApiInterceptor
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -30,6 +31,10 @@ fun appModule() = module {
 
     single<DataManager> {
         DataManagerImpl(get())
+    }
+
+    single {
+        ProductMapper()
     }
 
     single<Api> {

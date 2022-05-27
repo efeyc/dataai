@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@{uiProduct.status ? @drawable/bg_blue_light_rounded_10dp : @drawable/bg_gray_rounded_10dp}"
+        app:status="@{uiProduct.status}"
         android:paddingHorizontal="@dimen/margin_medium"
         android:paddingVertical="@dimen/margin_small">
 
