@@ -1,6 +1,6 @@
 package com.eck.dataai.helpers
 
-import com.eck.dataai.mapper.ProductMapper
+import com.eck.dataai.mapper.ProductMapperImpl
 import com.eck.dataai.models.api.Product
 import com.eck.dataai.models.api.SharingProduct
 
@@ -24,5 +24,5 @@ object TestConstants {
         PRODUCT_DESC, ICON, ACCOUNT_ID, ACTIVE
     )
 
-    val uiProduct = ProductMapper().map(product)
+    val uiProduct = ProductMapperImpl().map(product)
 }

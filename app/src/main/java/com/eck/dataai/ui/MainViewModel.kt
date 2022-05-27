@@ -8,12 +8,8 @@ import com.eck.dataai.data.AnalyticsKeys
 import com.eck.dataai.managers.AnalyticsManager
 import com.eck.dataai.managers.DataManager
 import com.eck.dataai.managers.LogManager
-import com.eck.dataai.mapper.Mapper
 import com.eck.dataai.mapper.ProductMapper
 import com.eck.dataai.mapper.SalesMapper
-import com.eck.dataai.models.api.Product
-import com.eck.dataai.models.api.SalesData
-import com.eck.dataai.models.ui.UIProduct
 import com.eck.dataai.testutils.OpenForTesting
 import com.eck.dataai.ui.common.Event
 import com.eck.dataai.ui.common.ItemViewModel
@@ -57,6 +53,7 @@ class MainViewModel(
                 _data.postValue(viewData)
             } catch (exc: Exception) {
                 logManager.logError(exc)
+                _data.postValue(emptyList())
             }
         }
     }
@@ -69,6 +66,7 @@ class MainViewModel(
                 _productSales.postValue(viewData)
             } catch (exc: Exception) {
                 logManager.logError(exc)
+                _data.postValue(emptyList())
             }
         }
     }

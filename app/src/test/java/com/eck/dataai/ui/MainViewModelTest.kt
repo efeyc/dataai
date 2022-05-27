@@ -1,14 +1,17 @@
 package com.eck.dataai.ui
 
 import com.eck.dataai.helper.InstantExecutorExtension
+import com.eck.dataai.helper.TestConstants.ACCOUNT_ID
+import com.eck.dataai.helper.TestConstants.PRODUCT_ID
 import com.eck.dataai.helper.TestConstants.product
+import com.eck.dataai.helper.TestConstants.salesData
 import com.eck.dataai.helper.TestConstants.uiProduct
+import com.eck.dataai.helper.TestConstants.uiSales
 import com.eck.dataai.managers.AnalyticsManager
 import com.eck.dataai.managers.DataManager
 import com.eck.dataai.managers.LogManager
-import com.eck.dataai.mapper.Mapper
-import com.eck.dataai.models.api.Product
-import com.eck.dataai.models.ui.UIProduct
+import com.eck.dataai.mapper.ProductMapper
+import com.eck.dataai.mapper.SalesMapper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -38,7 +41,10 @@ class MainViewModelTest {
     lateinit var analyticsManager: AnalyticsManager
 
     @Mock
-    lateinit var productMapper: Mapper<Product, UIProduct>
+    lateinit var salesMapper: SalesMapper
+
+    @Mock
+    lateinit var productMapper: ProductMapper
 
     private val dispatcher = UnconfinedTestDispatcher()
     private val exception = RuntimeException("test")
@@ -49,7 +55,10 @@ class MainViewModelTest {
     fun setup() {
         MockitoAnnotations.openMocks(this)
         Dispatchers.setMain(dispatcher)
-        mainViewModel = MainViewModel(dataManager, logManager, productMapper, analyticsManager)
+        `when`(productMapper.map(product)).thenReturn(uiProduct)
+        `when`(salesMapper.map(salesData)).thenReturn(uiSales)
+
+        mainViewModel = MainViewModel(dataManager, logManager, productMapper, salesMapper, analyticsManager)
 
     }
 
@@ -61,12 +70,20 @@ class MainViewModelTest {
     @Test
     fun loadData(): Unit = runTest {
         `when`(dataManager.getUserProducts()).thenReturn(listOf(product))
-        `when`(productMapper.map(product)).thenReturn(uiProduct)
         mainViewModel.loadData()
 
         verify(dataManager).getUserProducts()
-        verify(productMapper).map(product)
         verify(logManager, never()).logError(exception)
         assertEquals(listOf(uiProduct), mainViewModel.data.value)
+    }
+
+    @Test
+    fun loadProductSales(): Unit = runTest {
+        `when`(dataManager.getProductSales(ACCOUNT_ID, PRODUCT_ID)).thenReturn(listOf(salesData))
+        mainViewModel.loadProductSales(ACCOUNT_ID, PRODUCT_ID)
+
+        verify(dataManager).getProductSales(ACCOUNT_ID, PRODUCT_ID)
+        verify(logManager, never()).logError(exception)
+        assertEquals(listOf(uiSales), mainViewModel.productSales.value)
     }
 }
