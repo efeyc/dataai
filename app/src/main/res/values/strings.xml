@@ -4,7 +4,7 @@
     <string name="sales">Sales:</string>
     <string name="units_description_downloads">%d downloads</string>
     <string name="units_description_updates">%d updates</string>
-    <string name="units_description_sales">%d refunds</string>
+    <string name="units_description_sales">%d sales</string>
     <string name="revenue_description_sales">%s from sales</string>
     <string name="revenue_description_refunds">%s from refunds</string>
 </resources>
