@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="uiSales"
+            type="com.eck.dataai.models.ui.UISales" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_blue_light_rounded_10dp"
+        android:paddingHorizontal="@dimen/margin_medium"
+        android:paddingVertical="@dimen/margin_small">
+
+        <TextView
+            android:id="@+id/countryLabel"
+            style="@style/OpenSansSemiBold_Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/country"
+            android:textSize="@dimen/ts_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/countryValue"
+            style="@style/OpenSansRegular_Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/half_margin"
+            android:text="@{uiSales.country}"
+            android:textSize="@dimen/ts_small"
+            app:layout_constraintStart_toEndOf="@id/countryLabel"
+            app:layout_constraintTop_toTopOf="@id/countryLabel"
+            tools:text="NL" />
+
+        <TextView
+            android:id="@+id/unitsLabel"
+            style="@style/OpenSansSemiBold_Black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/half_margin"
+            android:layout_marginEnd="@dimen/half_margin"
+            android:text="@string/units"
+            android:textSize="@dimen/ts_small"
+            app:layout_constraintEnd_toStartOf="@id/salesLabel"
+            app:layout_constraintStart_toStartOf="@id/countryLabel"
+            app:layout_constraintTop_toBottomOf="@id/countryLabel" />
+
+        <TextView
+            android:id="@+id/unitsValue"
+            style="@style/OpenSansRegular_Black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/ts_smaller"
+            app:layout_constraintEnd_toEndOf="@id/unitsLabel"
+            app:layout_constraintStart_toStartOf="@id/unitsLabel"
+            app:layout_constraintTop_toBottomOf="@id/unitsLabel"
+            app:unitsData="@{uiSales.units}"
+            tools:text="1 downloads" />
+
+        <TextView
+            android:id="@+id/salesLabel"
+            style="@style/OpenSansSemiBold_Black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/half_margin"
+            android:text="@string/sales"
+            android:textSize="@dimen/ts_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/unitsLabel"
+            app:layout_constraintTop_toBottomOf="@id/countryLabel" />
+
+        <TextView
+            android:id="@+id/salesValue"
+            style="@style/OpenSansRegular_Black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/ts_smaller"
+            app:layout_constraintEnd_toEndOf="@id/salesLabel"
+            app:layout_constraintStart_toStartOf="@id/salesLabel"
+            app:layout_constraintTop_toBottomOf="@id/salesLabel"
+            app:revenueData="@{uiSales.revenue}"
+            tools:text="0.70 from downloads" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+
+
+
+

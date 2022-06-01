@@ -19,7 +19,10 @@
         android:name="com.eck.dataai.ui.DetailFragment"
         tools:layout="@layout/fragment_detail">
         <argument
-            android:name="objectNumber"
-            app:argType="string" />
+            android:name="accountId"
+            app:argType="integer" />
+        <argument
+            android:name="productId"
+            app:argType="integer" />
     </fragment>
 </navigation>

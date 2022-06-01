@@ -2,10 +2,11 @@ package com.eck.dataai.di
 
 import com.eck.dataai.BuildConfig
 import com.eck.dataai.data.Constants
-import com.eck.dataai.managers.AnalyticsManager
-import com.eck.dataai.managers.AnalyticsManagerImpl
-import com.eck.dataai.managers.LogManager
-import com.eck.dataai.managers.LogManagerImpl
+import com.eck.dataai.managers.*
+import com.eck.dataai.mapper.ProductMapper
+import com.eck.dataai.mapper.ProductMapperImpl
+import com.eck.dataai.mapper.SalesMapper
+import com.eck.dataai.mapper.SalesMapperImpl
 import com.eck.dataai.network.Api
 import com.eck.dataai.network.ApiInterceptor
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -29,6 +30,18 @@ fun appModule() = module {
 
     single<LogManager> {
         LogManagerImpl()
+    }
+
+    single<DataManager> {
+        DataManagerImpl(get())
+    }
+
+    single<ProductMapper> {
+        ProductMapperImpl()
+    }
+
+    single<SalesMapper> {
+        SalesMapperImpl()
     }
 
     single<Api> {
